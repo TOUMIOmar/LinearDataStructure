@@ -1,0 +1,32 @@
+ALGORITHM Solution2Chekpontwithhashtables
+VAR
+    set1 : HASH_TABLE<INTEGER,INTEGER> ;
+    set2 : HASH_TABLE<INTEGER,INTEGER> ;
+    set1length,set2length,x,y,i,j,sum : INTEGER:=0 ;
+BEGIN
+    Read(set1length) ;
+    Read(set2length);
+    FOR i FROM 0 to set1length DO
+    Read(x) ;
+    set1.insert(i,x) ;
+    END_FOR
+    
+    FOR j FROM 0 to set1length DO
+    Read(x) ;
+    set1.insert(j,x);
+    END_FOR
+
+    FOR i FROM 0 TO set1length DO
+    FOR j FROM 0 TO set2length DO
+    IF (set1.get(i) <> set2.get(j)) THEN
+    y := y+1  ;
+    END_IF 
+    END_FOR
+    IF (y == set2length ) THEN
+    sum := sum + set1.get(i)
+    END_IF
+    END_FOR
+
+    Write(sum)
+
+END
